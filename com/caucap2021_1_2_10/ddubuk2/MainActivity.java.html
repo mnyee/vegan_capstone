@@ -1,0 +1,247 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.caucap2021_1_2_10.ddubuk2</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.graphics.PointF</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.util.Log</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.ViewGroup</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Toast</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.annotation.NonNull</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.geometry.LatLng</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.map.CameraPosition</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.map.MapView</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.map.NaverMap</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.map.OnMapReadyCallback</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.map.overlay.InfoWindow</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.map.overlay.Marker</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.map.overlay.Overlay</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.naver.maps.map.overlay.OverlayImage</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">Adapter.pointAdapter</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity </span><span class="s0">implements </span><span class="s1">OnMapReadyCallback {</span>
+    <span class="s0">private </span><span class="s1">MapView mapView</span><span class="s0">;</span>
+    <span class="s0">private static </span><span class="s1">NaverMap naverMap</span><span class="s0">;</span>
+
+    <span class="s2">//마커 변수 선언 및 초기화</span>
+    <span class="s0">private </span><span class="s1">Marker marker1 = </span><span class="s0">new </span><span class="s1">Marker()</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">Marker marker2 = </span><span class="s0">new </span><span class="s1">Marker()</span><span class="s0">;</span>
+
+    <span class="s2">//Infowindow 변수 선언 및 초기화</span>
+    <span class="s0">private </span><span class="s1">InfoWindow infoWindow1 = </span><span class="s0">new </span><span class="s1">InfoWindow()</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">InfoWindow infoWindow2 = </span><span class="s0">new </span><span class="s1">InfoWindow()</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">InfoWindow infoWindow3 = </span><span class="s0">new </span><span class="s1">InfoWindow()</span><span class="s0">;</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span><span class="s0">;</span>
+
+        <span class="s1">Button btnMark1 = (Button) findViewById(R.id.btnmark1)</span><span class="s0">;</span>
+        <span class="s1">Button btnMark2 = (Button) findViewById(R.id.btnmark2)</span><span class="s0">;</span>
+        <span class="s1">Button btnInfo1 = (Button) findViewById(R.id.btninfo1)</span><span class="s0">;</span>
+        <span class="s1">Button btnInfo2 = (Button) findViewById(R.id.btninfo2)</span><span class="s0">;</span>
+
+        <span class="s1">btnMark1.setOnClickListener(</span><span class="s0">new </span><span class="s1">Button.OnClickListener(){</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v){</span>
+                <span class="s1">setMarker(marker1</span><span class="s0">, </span><span class="s3">37.5067893</span><span class="s0">, </span><span class="s3">126.960823</span><span class="s0">, </span><span class="s1">R.drawable.ic_baseline_place_24</span><span class="s0">, </span><span class="s3">0</span><span class="s1">)</span><span class="s0">; </span><span class="s2">/*중대병원 마커*/</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">btnMark2.setOnClickListener(</span><span class="s0">new </span><span class="s1">Button.OnClickListener(){</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v){</span>
+                <span class="s1">setMarker(marker2</span><span class="s0">, </span><span class="s3">37.50919257274509</span><span class="s0">, </span><span class="s3">126.96342325389423</span><span class="s0">, </span><span class="s1">R.drawable.ic_baseline_place_24</span><span class="s0">, </span><span class="s3">10</span><span class="s1">)</span><span class="s0">; </span><span class="s2">/*흑석역*/</span>
+
+                <span class="s1">marker2.setOnClickListener(</span><span class="s0">new </span><span class="s1">Overlay.OnClickListener() {</span>
+                    <span class="s1">@Override</span>
+                    <span class="s0">public boolean </span><span class="s1">onClick(@NonNull Overlay overlay) {</span>
+                        <span class="s1">ViewGroup rootView = (ViewGroup)findViewById(R.id.fragment_container)</span><span class="s0">;</span>
+                        <span class="s1">pointAdapter adapter = </span><span class="s0">new </span><span class="s1">pointAdapter(MainActivity.</span><span class="s0">this, </span><span class="s1">rootView)</span><span class="s0">;</span>
+
+                        <span class="s1">infoWindow3.setAdapter(adapter)</span><span class="s0">;</span>
+                        <span class="s2">//인포창의 우선순위</span>
+                        <span class="s1">infoWindow3.setZIndex(</span><span class="s3">10</span><span class="s1">)</span><span class="s0">;</span>
+
+                        <span class="s2">//투명도 조정</span>
+                        <span class="s1">infoWindow3.setAlpha(</span><span class="s3">0.9f</span><span class="s1">)</span><span class="s0">;</span>
+
+                        <span class="s2">//인포창 표시</span>
+                        <span class="s1">infoWindow3.open(marker2)</span><span class="s0">;</span>
+                        <span class="s0">return false;</span>
+                    <span class="s1">}</span>
+                <span class="s1">})</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">btnInfo1.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener(){</span>
+
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v) {</span>
+                <span class="s1">infoWindow1.setAdapter(</span><span class="s0">new </span><span class="s1">InfoWindow.DefaultTextAdapter(getApplication()){</span>
+
+
+                    <span class="s1">@NonNull</span>
+                    <span class="s1">@Override</span>
+                    <span class="s0">public </span><span class="s1">CharSequence getText(@NonNull InfoWindow infoWindow) {</span>
+                        <span class="s0">return </span><span class="s4">&quot;정보창1&quot;</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                <span class="s1">})</span><span class="s0">;</span>
+
+                <span class="s2">//인포창의 우선순위</span>
+                <span class="s1">infoWindow1.setZIndex(</span><span class="s3">10</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s2">//투명도 조정</span>
+                <span class="s1">infoWindow1.setAlpha(</span><span class="s3">0.9f</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s2">//위치 지정</span>
+                <span class="s1">infoWindow1.setPosition(</span><span class="s0">new </span><span class="s1">LatLng(</span><span class="s3">33.28</span><span class="s0">, </span><span class="s3">126.4</span><span class="s1">))</span><span class="s0">;</span>
+
+                <span class="s2">//인포창 표시</span>
+                <span class="s1">infoWindow1.open(naverMap)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">btnInfo2.setOnClickListener(</span><span class="s0">new </span><span class="s1">Button.OnClickListener()</span>
+        <span class="s1">{</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v){</span>
+                <span class="s1">infoWindow2.setAdapter(</span><span class="s0">new </span><span class="s1">InfoWindow.DefaultTextAdapter(getApplication())</span>
+                <span class="s1">{</span>
+                    <span class="s1">@NonNull</span>
+                    <span class="s1">@Override</span>
+                    <span class="s0">public </span><span class="s1">CharSequence getText(@NonNull InfoWindow infoWindow){</span>
+                        <span class="s0">return </span><span class="s4">&quot;마커1위에 표시&quot;</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                <span class="s1">})</span><span class="s0">;</span>
+
+                <span class="s2">//인포창의 우선순위</span>
+                <span class="s1">infoWindow2.setZIndex(</span><span class="s3">10</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s2">//투명도 조정</span>
+                <span class="s1">infoWindow2.setAlpha(</span><span class="s3">0.9f</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s2">//인포창 표시</span>
+                <span class="s1">infoWindow2.open(marker1)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s2">//네이버 지도</span>
+        <span class="s1">mapView = (MapView) findViewById(R.id.map_view)</span><span class="s0">;</span>
+        <span class="s1">mapView.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">mapView.getMapAsync(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">setMarker(Marker marker</span><span class="s0">,  double </span><span class="s1">lat</span><span class="s0">, double </span><span class="s1">lng</span><span class="s0">, int </span><span class="s1">resourceID</span><span class="s0">, int </span><span class="s1">zIndex){</span>
+        <span class="s2">//원근감 표시</span>
+        <span class="s1">marker.setIconPerspectiveEnabled(</span><span class="s0">true</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s2">//아이콘 지정</span>
+        <span class="s1">marker.setIcon(OverlayImage.fromResource(resourceID))</span><span class="s0">;</span>
+
+        <span class="s2">//마커의 투명도</span>
+        <span class="s1">marker.setAlpha(</span><span class="s3">0.8f</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s2">//마커 위치</span>
+        <span class="s1">marker.setPosition(</span><span class="s0">new </span><span class="s1">LatLng(lat</span><span class="s0">, </span><span class="s1">lng))</span><span class="s0">;</span>
+
+        <span class="s2">//마커 우선순위</span>
+        <span class="s1">marker.setZIndex(zIndex)</span><span class="s0">;</span>
+
+        <span class="s2">//마커 표시</span>
+        <span class="s1">marker.setMap(naverMap)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onMapReady(@NonNull NaverMap naverMap){</span>
+        <span class="s0">this</span><span class="s1">.naverMap = naverMap</span><span class="s0">;</span>
+
+        <span class="s2">//배경 지도 선택</span>
+        <span class="s1">naverMap.setMapType(NaverMap.MapType.Navi)</span><span class="s0">;</span>
+
+        <span class="s2">//건물 표시</span>
+        <span class="s1">naverMap.setLayerGroupEnabled(naverMap.LAYER_GROUP_BUILDING</span><span class="s0">, true</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s2">//위치 및 각도 조정</span>
+        <span class="s1">CameraPosition cameraPosition = </span><span class="s0">new </span><span class="s1">CameraPosition(</span>
+                <span class="s0">new </span><span class="s1">LatLng(</span><span class="s3">37.50375115212309</span><span class="s0">, </span><span class="s3">126.95585107704552</span><span class="s1">)</span><span class="s0">,   </span><span class="s2">// 초기위치 : 학교</span>
+                <span class="s3">15</span><span class="s0">,</span>
+                <span class="s3">60</span><span class="s0">,</span>
+                <span class="s3">180</span>
+
+        <span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">naverMap.setCameraPosition(cameraPosition)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onStart()</span>
+    <span class="s1">{</span>
+        <span class="s0">super</span><span class="s1">.onStart()</span><span class="s0">;</span>
+        <span class="s1">mapView.onStart()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onResume()</span>
+    <span class="s1">{</span>
+        <span class="s0">super</span><span class="s1">.onResume()</span><span class="s0">;</span>
+        <span class="s1">mapView.onResume()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onPause()</span>
+    <span class="s1">{</span>
+        <span class="s0">super</span><span class="s1">.onPause()</span><span class="s0">;</span>
+        <span class="s1">mapView.onPause()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onStop()</span>
+    <span class="s1">{</span>
+        <span class="s0">super</span><span class="s1">.onStop()</span><span class="s0">;</span>
+        <span class="s1">mapView.onStop()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onDestroy() {</span>
+        <span class="s0">super</span><span class="s1">.onDestroy()</span><span class="s0">;</span>
+        <span class="s1">mapView.onDestroy()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onSaveInstanceState(Bundle outState)</span>
+    <span class="s1">{</span>
+        <span class="s0">super</span><span class="s1">.onSaveInstanceState(outState)</span><span class="s0">;</span>
+        <span class="s1">mapView.onSaveInstanceState(outState)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onLowMemory()</span>
+    <span class="s1">{</span>
+        <span class="s0">super</span><span class="s1">.onLowMemory()</span><span class="s0">;</span>
+        <span class="s1">mapView.onLowMemory()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
