@@ -26,7 +26,8 @@
             android:value="s0shssxb53"/>
 
         <activity android:name=".LoginActivity"/>
-
+        <activity android:name=".ListActivity"/>
+        <activity android:name=".RegisterActivity"/>
 
 
 
