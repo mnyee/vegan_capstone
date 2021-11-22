@@ -33,7 +33,34 @@
         android:padding="16dp"
         android:text="내용"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="100dp"
+            android:text=" \n사진 \n업로드"/>
+
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_baseline_camera_alt_24"
+            android:id="@+id/imageView"/>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_baseline_camera_alt_24"
+            android:id="@+id/reg_img"/>
+
+    </LinearLayout>
+
     <EditText
+
         android:id="@+id/content_et"
         android:padding="16dp"
         android:layout_width="match_parent"
