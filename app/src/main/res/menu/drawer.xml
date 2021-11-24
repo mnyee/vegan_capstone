@@ -12,11 +12,11 @@
             android:title="리뷰 게시판" />
 
         <item
-            android:id="@+id/navigation_item_write"
-            android:title="Empty" />
+            android:id="@+id/navigation_location_auth"
+            android:title="위치 인증" />
 
         <item
-            android:id="@+id/navigation_item_settings"
-            android:title="Empty" />
+            android:id="@+id/navigation_mypage"
+            android:title="마이페이지" />
     </group>
 </menu>
