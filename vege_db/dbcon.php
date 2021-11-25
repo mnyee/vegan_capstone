@@ -4,13 +4,15 @@
     $db_password="1234";
     $db_name="vege";
 
-    $conn=mysqli_connect($db_host, $db_user, $db_password, $db_name);
+    $con=mysqli_connect($db_host, $db_user, $db_password, $db_name);
     if (mysqli_connect_error()) {
-        echo "MySQL 접속 실패", "<br>";
-        echo "오류 원인: ", mysqli_connect_error();
+        $response["success"] = false;
+        $response["msg"] = "DB 접속 실패.";
+        $response["errcode"] = 2023;
+        echo json_encode($response);
         exit();
     }
-    echo "MySQL 접속 성공";
-    mysqli_close($conn);
+    //echo "MySQL 접속 성공";
+    //mysqli_close($con);
     
 ?>
