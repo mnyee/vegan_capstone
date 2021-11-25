@@ -305,5 +305,4 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapView.onLowMemory();
     }
 
-
 }
