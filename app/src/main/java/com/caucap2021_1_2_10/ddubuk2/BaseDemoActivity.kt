@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.OnMapReadyCallback
 
-abstract class BaseDemoActivity(@LayoutRes private val layoutId: Int = R.layout.activity_main) :
+abstract class BaseDemoActivity(@LayoutRes private val layoutId: Int = R.layout.activity_map) :
         AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {

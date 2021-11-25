@@ -15,6 +15,9 @@ public class JavaItem implements TedClusterItem {
         this.latLng = latLng;
     }
 
+    public JavaItem(double v, double v1) {
+    }
+
     public LatLng getLatLng() {
         return latLng;
     }

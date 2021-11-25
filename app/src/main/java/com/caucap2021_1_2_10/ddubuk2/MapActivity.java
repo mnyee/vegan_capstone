@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+
 import com.google.android.material.navigation.NavigationView;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.geometry.LatLngBounds;
@@ -36,7 +37,8 @@ import Adapter.pointAdapter;
 import ted.gun0912.clustering.naver.TedNaverClustering;
 
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback  {
     private MapView mapView;
     private static NaverMap naverMap;
 
@@ -54,10 +56,22 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
-
+    //마커 클러스터링 함수 동작부분 (현재 난수로 좌표찍히는중)
+    private ArrayList<NaverItem> getItems() {
+        LatLngBounds bounds = naverMap.getContentBounds();
+        ArrayList<NaverItem> items = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            NaverItem temp = new NaverItem((bounds.getNorthLatitude() - bounds.getSouthLatitude()) * Math.random() + bounds.getSouthLatitude(),
+                    (bounds.getEastLongitude() - bounds.getWestLongitude()) * Math.random() + bounds.getWestLongitude()
+            );
+            items.add(temp);
+        }
+        return items;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
@@ -78,6 +92,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapView = (MapView) findViewById(R.id.map_view);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+
+
 
         btnMark1.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -234,27 +250,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         );
         naverMap.setCameraPosition(cameraPosition);
 
-// 마커 클러스터 미구현
-        /*TedNaverClustering.with(this, naverMap)
+        // 마커 클러스터 구현
+        TedNaverClustering.with(this, naverMap)
                 .items(getItems())
-                .make();*/
+                .make();
 
     }
 
-/*
-    private ArrayList<NaverItem> getItems() {
-        LatLngBounds bounds = naverMap.getContentBounds();
-        ArrayList<NaverItem> items = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            NaverItem temp = new NaverItem((bounds.getNorthLatitude() - bounds.getSouthLatitude()) * Math.random() + bounds.getSouthLatitude(),
-                    (bounds.getEastLongitude() - bounds.getWestLongitude()) * Math.random() + bounds.getWestLongitude()
-            );
-            items.add(temp);
-        }
-        return items;
 
-    }
-*/
+
+
 
 
     @Override
@@ -304,5 +309,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onLowMemory();
         mapView.onLowMemory();
     }
+
 
 }
