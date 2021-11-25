@@ -5,8 +5,8 @@
     include "dbcon.php"; //db 연결
     
     // 서버로부터 좌표값과 함께 응답 요청
-    $user_long = $_GET["user_long"]; // 경도
-    $user_lat = $_GET["user_lat"]; // 위도
+    $user_long = $_POST["user_long"]; // 경도
+    $user_lat = $_POST["user_lat"]; // 위도
 
     //위,경도 데이터 검증
     if (!is_numeric($user_long)){
