@@ -24,15 +24,17 @@ import com.naver.maps.map.CameraUpdate;
 import com.naver.maps.map.MapView;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.UiSettings;
 import com.naver.maps.map.overlay.InfoWindow;
 import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.overlay.OverlayImage;
-
+import android.location.Geocoder;
 import java.util.ArrayList;
 
 import Adapter.pointAdapter;
 import ted.gun0912.clustering.naver.TedNaverClustering;
+
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private MapView mapView;
@@ -206,20 +208,41 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
+        UiSettings uiSettings = naverMap.getUiSettings();
 
-        naverMap.moveCamera(
-                CameraUpdate.toCameraPosition(
-                        new CameraPosition(NaverMap.DEFAULT_CAMERA_POSITION.target, NaverMap.DEFAULT_CAMERA_POSITION.zoom))
+
+        //배경 지도 선택
+        naverMap.setMapType(NaverMap.MapType.Navi);
+
+        //건물 표시
+        naverMap.setLayerGroupEnabled(naverMap.LAYER_GROUP_BUILDING, true);
+        naverMap.setSymbolScale(0.8f);
+        naverMap.setIndoorEnabled(true);
+
+        uiSettings.isLocationButtonEnabled();
+
+
+
+
+        //위치 및 각도 조정
+        CameraPosition cameraPosition = new CameraPosition(
+                new LatLng(37.50375115212309, 126.95585107704552),   // 초기위치 : 학교
+                15,
+                0,
+                180
+
         );
+        naverMap.setCameraPosition(cameraPosition);
 
 // 마커 클러스터 미구현
-/*        TedNaverClustering.with(this, naverMap)
+        /*TedNaverClustering.with(this, naverMap)
                 .items(getItems())
                 .make();*/
 
     }
 
-/*    private ArrayList<NaverItem> getItems() {
+/*
+    private ArrayList<NaverItem> getItems() {
         LatLngBounds bounds = naverMap.getContentBounds();
         ArrayList<NaverItem> items = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
@@ -230,7 +253,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
         return items;
 
-    }*/
+    }
+*/
 
 
     @Override
