@@ -32,11 +32,8 @@
             WHERE `long` = $user_long AND `lat` = $user_lat";
     //echo $sql;
 
-    $ret = mysqli_query($con, $sql);
-    if($ret){
-        $count = mysqli_num_rows($ret);
-    }
-    else{
+    $result = mysqli_query($con, $sql);
+    if(!$result){
         $response["success"] = false;
         $response["msg"] = "조회결과 없음.";
         $response["errcode"] = 2033;
@@ -47,7 +44,7 @@
     
     // $row를 $data에 2차원 배열로. 
     $data = array();
-    while($row = mysqli_fetch_assoc($ret)) {
+    while($row = mysqli_fetch_assoc($result)) {
         array_push($data, $row);        
     }
 
