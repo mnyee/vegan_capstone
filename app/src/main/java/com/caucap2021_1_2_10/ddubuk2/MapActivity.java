@@ -56,18 +56,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
-    //마커 클러스터링 함수 동작부분 (현재 난수로 좌표찍히는중)
-    private ArrayList<NaverItem> getItems() {
-        LatLngBounds bounds = naverMap.getContentBounds();
-        ArrayList<NaverItem> items = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            NaverItem temp = new NaverItem((bounds.getNorthLatitude() - bounds.getSouthLatitude()) * Math.random() + bounds.getSouthLatitude(),
-                    (bounds.getEastLongitude() - bounds.getWestLongitude()) * Math.random() + bounds.getWestLongitude()
-            );
-            items.add(temp);
-        }
-        return items;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -250,12 +239,27 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         );
         naverMap.setCameraPosition(cameraPosition);
 
-        // 마커 클러스터 구현
-        TedNaverClustering.with(this, naverMap)
+        //------- 마커 클러스터 실행----------
+/*        TedNaverClustering.with(this, naverMap)
                 .items(getItems())
-                .make();
+                .make();*/
+        //-------- 마커 클러스터 실행---------
 
     }
+
+    //--------마커 클러스터링 함수 (현재 난수로 좌표찍히는중)-------------
+/*    private ArrayList<NaverItem> getItems() {
+        LatLngBounds bounds = naverMap.getContentBounds();
+        ArrayList<NaverItem> items = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            NaverItem temp = new NaverItem((bounds.getNorthLatitude() - bounds.getSouthLatitude()) * Math.random() + bounds.getSouthLatitude(),
+                    (bounds.getEastLongitude() - bounds.getWestLongitude()) * Math.random() + bounds.getWestLongitude()
+            );
+            items.add(temp);
+        }
+        return items;
+    }*/
+    //----------마커 클러스터링 함수 (현재 난수로 좌표찍히는중)-------------
 
 
 
