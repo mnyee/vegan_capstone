@@ -217,14 +217,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
         //배경 지도 선택
-        naverMap.setMapType(NaverMap.MapType.Navi);
+        naverMap.setMapType(NaverMap.MapType.Basic);
 
         //건물 표시
         naverMap.setLayerGroupEnabled(naverMap.LAYER_GROUP_BUILDING, true);
-        naverMap.setSymbolScale(0.8f);
+        naverMap.setSymbolScale(0.7f);
         naverMap.setIndoorEnabled(true);
-
-        uiSettings.isLocationButtonEnabled();
 
 
 
