@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MapActivity"
+    android:background="#ece6cc">
 
     <TextView
         android:id="@+id/title"
@@ -13,6 +14,7 @@
         android:layout_marginTop="100dp"
         android:text="회원가입 기능"
         android:textSize="30dp"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/input_phone_num"
@@ -29,7 +31,10 @@
         android:layout_marginEnd="30dp"
         android:ems="10"
         android:hint="핸드폰 번호를  - 없이 입력해주세요."
+        android:textColorHint="@color/black"
+        android:backgroundTint="@color/black"
         android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
@@ -54,6 +59,8 @@
         android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="인증번호를 입력해주세요."
+        android:textColorHint="@color/black"
+        android:backgroundTint="@color/black"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/send_sms_button"
         app:layout_constraintHorizontal_bias="0.0"
@@ -77,6 +84,8 @@
         android:layout_marginTop="204dp"
         android:ems="10"
         android:hint="닉네임을 입력해주세요."
+        android:textColorHint="@color/black"
+        android:backgroundTint="@color/black"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/send_sms_button"
         app:layout_constraintHorizontal_bias="1.0"
