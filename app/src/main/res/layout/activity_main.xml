@@ -15,12 +15,24 @@
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="52dp"
-            android:layout_marginBottom="569dp"
+            android:layout_marginEnd="53dp"
+            android:layout_marginBottom="596dp"
             android:gravity="center"
-            android:text="원하는 서비스를 선택하세요"
+            android:text="채식주의자를 위한 \n 채식주의자에 의한 \n 채식주의자의"
             android:textColor="#000000"
-            android:textSize="25dp" />
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="51dp"
+            android:layout_marginBottom="510dp"
+            android:gravity="center"
+            android:text=" 뚜벅이 "
+            android:textColor="#000000"
+            android:textSize="40dp" />
 
         <ImageButton
             android:id="@+id/map"
@@ -65,5 +77,29 @@
             android:text="리뷰들 확인하기"
             android:textSize="15dp"
             android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="173dp"
+            android:layout_height="110dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="222dp"
+            android:layout_marginBottom="77dp"
+            android:gravity="center"
+            android:text="채식 식당의 \n 위치와 정보가\n 궁금하다면"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="158dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="102dp"
+            android:gravity="center"
+            android:text="채식 식당의 리뷰를 확인하고싶다면"
+            android:textColor="#000000"
+            android:textSize="18dp" />
     </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
