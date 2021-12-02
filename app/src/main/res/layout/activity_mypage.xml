@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toEndOf="@+id/phone_num"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="@+id/phone_num"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/bm"/>
 
     <TextView
         android:id="@+id/phone_num_text"
@@ -34,7 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:fontFamily="@font/bm"/>
 
 
     <EditText
@@ -65,7 +67,8 @@
         app:layout_constraintEnd_toEndOf="@+id/phone_num"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/phone_num"
-        app:layout_constraintTop_toBottomOf="@+id/phone_num" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_num"
+        android:fontFamily="@font/bm"/>
 
     <EditText
         android:id="@+id/nickname"

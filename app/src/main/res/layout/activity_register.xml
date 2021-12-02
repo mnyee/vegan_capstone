@@ -17,7 +17,8 @@
             android:padding="16dp"
             android:text="제목"
             android:textColor="@color/black"
-            android:background="#B1A189"/>
+            android:background="#B1A189"
+            android:fontFamily="@font/bm"/>
 
         <EditText
             android:id="@+id/title_et"
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="제목을 입력하세요."
+            android:fontFamily="@font/bm"
             />
     </LinearLayout>
 
@@ -50,7 +52,8 @@
             android:text=" \n사진 \n업로드"
             android:textColor="@color/black"
             android:gravity="center"
-            android:background="#B1A189"/>
+            android:background="#B1A189"
+            android:fontFamily="@font/bm"/>
 
 
 
@@ -77,6 +80,7 @@
         android:layout_weight="1"
         android:background="#aaaaaa"
         android:hint="내용을 입력하세요."
+        android:fontFamily="@font/bm"
         />
 
     <Button
@@ -85,7 +89,8 @@
         android:layout_height="wrap_content"
         android:text="등록하기"
         android:textColor="#FFFFFF"
-        android:background="#C62828"/>
+        android:background="#C62828"
+        android:fontFamily="@font/bm"/>
 
 
 </LinearLayout>

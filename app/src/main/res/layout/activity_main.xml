@@ -20,7 +20,8 @@
             android:gravity="center"
             android:text="채식주의자를 위한 \n 채식주의자에 의한 \n 채식주의자의"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/bm"/>
 
         <TextView
             android:layout_width="300dp"
@@ -32,7 +33,8 @@
             android:gravity="center"
             android:text=" 뚜벅이 "
             android:textColor="#000000"
-            android:textSize="40dp" />
+            android:textSize="40dp"
+            android:fontFamily="@font/bm"/>
 
         <ImageButton
             android:id="@+id/map"
@@ -53,7 +55,8 @@
             android:gravity="center"
             android:text="지도 서비스"
             android:textSize="15dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/bm"/>
 
         <ImageButton
             android:id="@+id/review"
@@ -64,7 +67,8 @@
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="277dp"
             android:background="#B1A189"
-            android:src="@drawable/ic_baseline_list_alt_24" />
+            android:src="@drawable/ic_baseline_list_alt_24"
+            android:fontFamily="@font/bm"/>
 
         <TextView
             android:layout_width="100dp"
@@ -74,9 +78,10 @@
             android:layout_marginEnd="54dp"
             android:layout_marginBottom="208dp"
             android:gravity="center"
-            android:text="리뷰들 확인하기"
+            android:text="리뷰 확인하기"
             android:textSize="15dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/bm"/>
 
         <TextView
             android:layout_width="173dp"
@@ -84,9 +89,10 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="222dp"
-            android:layout_marginBottom="77dp"
+            android:layout_marginBottom="137dp"
+            android:fontFamily="@font/bm"
             android:gravity="center"
-            android:text="채식 식당의 \n 위치와 정보가\n 궁금하다면"
+            android:text="채식 식당의\n위치와 정보가\n궁금하다면"
             android:textColor="#000000"
             android:textSize="18dp" />
 
@@ -95,8 +101,9 @@
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="21dp"
-            android:layout_marginBottom="102dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="163dp"
+            android:fontFamily="@font/bm"
             android:gravity="center"
             android:text="채식 식당의 리뷰를 확인하고싶다면"
             android:textColor="#000000"

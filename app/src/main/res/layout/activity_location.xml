@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toEndOf="@+id/location_text"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="@+id/location_text"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/bm"/>
 
     <TextView
         android:id="@+id/location_text"
@@ -34,7 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:fontFamily="@font/bm"/>
 
 
     <TextView
@@ -61,7 +63,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/location"
         app:layout_constraintStart_toStartOf="@+id/location"
-        app:layout_constraintTop_toBottomOf="@+id/location" />
+        app:layout_constraintTop_toBottomOf="@+id/location"
+        android:fontFamily="@font/bm"/>
 
 
 
