@@ -26,17 +26,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="24dp"
-            android:text="채식카페" />3
-
-        <Button
-            android:id="@+id/btnmark2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="124dp"
-            android:layout_marginBottom="24dp"
-            android:text="채식식당" />
+            android:text="정보확인하기" />
 
 
 
