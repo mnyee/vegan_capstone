@@ -75,7 +75,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         Button btnMark1 = (Button) findViewById(R.id.btnmark1);
-        Button btnMark2 = (Button) findViewById(R.id.btnmark2);
+
 
         //네이버 지도
         mapView = (MapView) findViewById(R.id.map_view);
@@ -84,36 +84,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
 
+
         btnMark1.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setMarker(marker1, 37.5067893, 126.960823, R.drawable.ic_baseline_place_24, 0); /*중대병원 마커*/
+                setMarker(marker2, 37.54602901016027, 127.05354135579218, R.drawable.ic_baseline_place_24, 10); /*흑석역*/
 
-                marker1.setOnClickListener(new Overlay.OnClickListener() {
-                    @Override
-                    public boolean onClick(@NonNull Overlay overlay) {
-                        ViewGroup rootView = (ViewGroup) findViewById(R.id.drawer_layout);
-                        pointAdapter adapter = new pointAdapter(MapActivity.this, rootView);
-
-                        infoWindow3.setAdapter(adapter);
-                        //인포창의 우선순위
-                        infoWindow3.setZIndex(10);
-
-                        //투명도 조정
-                        infoWindow3.setAlpha(0.9f);
-
-                        //인포창 표시
-                        infoWindow3.open(marker2);
-                        return false;
-                    }
-                });
-            }
-        });
-
-        btnMark2.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMarker(marker2, 37.50919257274509, 126.96342325389423, R.drawable.ic_baseline_place_24, 10); /*흑석역*/
 
                 marker2.setOnClickListener(new Overlay.OnClickListener() {
                     @Override
@@ -213,7 +189,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
-        UiSettings uiSettings = naverMap.getUiSettings();
 
 
         //배경 지도 선택
@@ -227,6 +202,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
 
+
         //위치 및 각도 조정
         CameraPosition cameraPosition = new CameraPosition(
                 new LatLng(37.50375115212309, 126.95585107704552),   // 초기위치 : 학교
@@ -236,12 +212,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         );
         naverMap.setCameraPosition(cameraPosition);
+/*
 
         //------- 마커 클러스터 실행----------
-/*        TedNaverClustering.with(this, naverMap)
+        TedNaverClustering.with(this, naverMap)
                 .items(getItems())
-                .make();*/
+                .make();
         //-------- 마커 클러스터 실행---------
+*/
 
     }
 
