@@ -22,6 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -56,4 +57,11 @@ dependencies {
     implementation 'io.github.ParkSangGwon:tedclustering-naver:1.0.2'
 
     implementation "gun0912.ted:tedpermission:2.1.0"
+
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
+
+
+
+
 }
