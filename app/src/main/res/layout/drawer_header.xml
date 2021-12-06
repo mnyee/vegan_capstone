@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="?attr/colorPrimaryDark"
+    android:background="#ece6cc"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:gravity="bottom">
@@ -11,7 +11,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Navigation Drawer"
+        android:text="뚜벅이"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:fontFamily="@font/bm"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>
