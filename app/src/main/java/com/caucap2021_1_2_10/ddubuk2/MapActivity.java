@@ -1,12 +1,15 @@
 package com.caucap2021_1_2_10.ddubuk2;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,8 +33,11 @@ import com.naver.maps.map.overlay.InfoWindow;
 import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.overlay.OverlayImage;
-import android.location.Geocoder;
+import com.naver.maps.map.util.FusedLocationSource;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import Adapter.pointAdapter;
 import ted.gun0912.clustering.naver.TedNaverClustering;
@@ -56,6 +62,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
+    private Geocoder geocoder;
+
 
 
     @Override
@@ -75,12 +83,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         Button btnMark1 = (Button) findViewById(R.id.btnmark1);
+        EditText searchAddr = (EditText)findViewById(R.id.searchAddr);
 
 
         //네이버 지도
         mapView = (MapView) findViewById(R.id.map_view);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+
 
 
 
@@ -111,6 +121,48 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 });
             }
 
+        });
+
+        findViewById(R.id.searchbutton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                String str=searchAddr.getText().toString();
+                List<Address> addressList = null;
+                try {
+                    // editText에 입력한 텍스트(주소, 지역, 장소 등)을 지오 코딩을 이용해 변환
+                    addressList = geocoder.getFromLocationName(
+                            str, // 주소
+                            10); // 최대 검색 결과 개수
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println(addressList.get(0).toString());
+                // 콤마를 기준으로 split
+                String []splitStr = addressList.get(0).toString().split(",");
+                String address = splitStr[0].substring(splitStr[0].indexOf("\"") + 1,splitStr[0].length() - 2); // 주소
+                System.out.println(address);
+
+                String latitude = splitStr[10].substring(splitStr[10].indexOf("=") + 1); // 위도
+                String longitude = splitStr[12].substring(splitStr[12].indexOf("=") + 1); // 경도
+                System.out.println(latitude);
+                System.out.println(longitude);
+
+                // 좌표(위도, 경도) 생성
+                LatLng point = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                // 마커 생성
+                Marker marker = new Marker();
+                marker.setPosition(point);
+                // 마커 추가
+                marker.setMap(naverMap);
+
+                // 해당 좌표로 화면 줌
+//                naverMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point,15));
+
+                CameraUpdate cameraUpdate = CameraUpdate.scrollTo(point);
+                naverMap.moveCamera(cameraUpdate);
+            }
         });
 
 
@@ -205,26 +257,24 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         //위치 및 각도 조정
         CameraPosition cameraPosition = new CameraPosition(
-                new LatLng(37.50375115212309, 126.95585107704552),   // 초기위치 : 학교
-                15,
+                new LatLng(37.56581492725076, 126.97734421930659),   // 초기위치 : 시청
+                10,
                 0,
                 180
 
         );
         naverMap.setCameraPosition(cameraPosition);
-/*
 
         //------- 마커 클러스터 실행----------
         TedNaverClustering.with(this, naverMap)
                 .items(getItems())
                 .make();
         //-------- 마커 클러스터 실행---------
-*/
 
     }
 
     //--------마커 클러스터링 함수 (현재 난수로 좌표찍히는중)-------------
-/*    private ArrayList<NaverItem> getItems() {
+    private ArrayList<NaverItem> getItems() {
         LatLngBounds bounds = naverMap.getContentBounds();
         ArrayList<NaverItem> items = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
@@ -234,7 +284,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             items.add(temp);
         }
         return items;
-    }*/
+    }
     //----------마커 클러스터링 함수 (현재 난수로 좌표찍히는중)-------------
 
 
