@@ -2,7 +2,7 @@
     
 // 서버에 식당 정보 응답
     header("Content-Type: application/json; charset=utf-8");
-    include "dbcon.php"; //db 연결
+    include "../dbcon.php"; //db 연결
     
     // 서버로부터 좌표값과 함께 응답 요청
     $user_lng = $_POST["user_lng"]; // 경도
