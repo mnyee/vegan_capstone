@@ -39,21 +39,23 @@
         android:fontFamily="@font/bm"/>
 
 
-    <EditText
+    <TextView
         android:id="@+id/phone_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:gravity="center"
+        android:text="010 - 0000 - 0000"
+        android:textSize="15dp"
+        android:textColor="@color/black"
         android:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/phone_num_text"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/phone_num_text"
+        app:layout_constraintTop_toBottomOf="@+id/phone_num_text"/>
 
-        app:layout_constraintTop_toBottomOf="@+id/phone_num_text" />
 
     <TextView
         android:id="@+id/nickname_text"
@@ -70,18 +72,22 @@
         app:layout_constraintTop_toBottomOf="@+id/phone_num"
         android:fontFamily="@font/bm"/>
 
-    <EditText
+    <TextView
         android:id="@+id/nickname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:backgroundTint="@color/black"
-        android:ems="10"
-        android:inputType="textPersonName"
+
+        android:text="뚜 벅 이"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="@+id/nickname_text"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/nickname_text"
         app:layout_constraintTop_toBottomOf="@+id/nickname_text" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
