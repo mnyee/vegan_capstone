@@ -4,8 +4,16 @@
     include "../dbcon.php";
 
     $num = $_POST["num"]; // 리뷰 고유 번호
-    $title = $_POST["title"]; // 제목
-    $body = $_POST["body"]; // 본문
+    $title = $_POST["title"]; // 수정할 제목
+    $body = $_POST["body"]; // 수정할 본문
+    $phone = $_POST["phone"]; // 유저 핸드폰 번호
+    
+    /*
+    $num = $_GET["num"]; // 리뷰 고유 번호
+    $title = $_GET["title"]; // 제목
+    $body = $_GET["body"]; // 본문
+    $phone = $_GET["phone"]; // 유저 핸드폰 번호  
+    */
 
     // 제목, 본문 문자열 길이 제한
     if(strlen($title) >11 or strlen($title)==0){
@@ -24,7 +32,7 @@
         exit();
     }
 
-    $sql1 = "UPDATE review SET `title`='$title', `body`='$body' WHERE (`num`='$num')";
+    $sql1 = "UPDATE review SET `title`='$title', `body`='$body' WHERE (`num`='$num' and `phone`='$phone')";
     $result = mysqli_query($con, $sql1);    
 
     if(!$result){
@@ -35,7 +43,7 @@
         exit();
     }
 
-    $sql2 = "SELECT title, body FROM review WHERE `num` = $num";
+    $sql2 = "SELECT title, body FROM review WHERE `num` = $num and `phone`='$phone'";
     $result = mysqli_query($con, $sql2);
 
     $data = mysqli_fetch_row($result);

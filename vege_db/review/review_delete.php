@@ -6,8 +6,16 @@
     $num = $_POST["num"]; // 리뷰 고유 번호
     $title = $_POST["title"]; // 제목
     $body = $_POST["body"]; // 본문
+    $phone = $_POST["phone"]; // 유저 핸드폰 번호
 
-    $sql = "DELETE FROM review WHERE `num`='$num'";
+    /*
+    $num = $_GET["num"]; // 리뷰 고유 번호
+    $title = $_GET["title"]; // 제목
+    $body = $_GET["body"]; // 본문
+    $phone = $_GET["phone"]; // 유저 핸드폰 번호  
+    */
+
+    $sql = "DELETE FROM review WHERE `num`='$num' and `phone` = '$phone'";
     $result = mysqli_query($con, $sql);
 
     if(!$result){
