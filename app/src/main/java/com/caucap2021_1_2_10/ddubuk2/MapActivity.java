@@ -1,15 +1,28 @@
 package com.caucap2021_1_2_10.ddubuk2;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.pow;
+import static java.lang.Math.toRadians;
+
+import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,12 +48,23 @@ import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.overlay.OverlayImage;
 import com.naver.maps.map.util.FusedLocationSource;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import Adapter.pointAdapter;
 import ted.gun0912.clustering.naver.TedNaverClustering;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 
 
@@ -63,6 +87,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private NavigationView navigationView;
 
     private Geocoder geocoder;
+
+    private String servername="";
+
+    private boolean isDrawerOpen = false;
+    private String DrawerSort="";
+
 
 
 
@@ -91,7 +121,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-
+        servername = getString(R.string.server_name);
 
 
 
@@ -202,6 +232,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Log.e("Frag", "Fragment");
     }
 
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -257,10 +290,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         //위치 및 각도 조정
         CameraPosition cameraPosition = new CameraPosition(
-                new LatLng(37.56581492725076, 126.97734421930659),   // 초기위치 : 시청
+                new LatLng(37.52076497720581, 126.91596442465841), 
                 10,
                 0,
-                180
+                0
 
         );
         naverMap.setCameraPosition(cameraPosition);
@@ -275,14 +308,29 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     //--------마커 클러스터링 함수 (현재 난수로 좌표찍히는중)-------------
     private ArrayList<NaverItem> getItems() {
+
         LatLngBounds bounds = naverMap.getContentBounds();
         ArrayList<NaverItem> items = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            NaverItem temp = new NaverItem((bounds.getNorthLatitude() - bounds.getSouthLatitude()) * Math.random() + bounds.getSouthLatitude(),
-                    (bounds.getEastLongitude() - bounds.getWestLongitude()) * Math.random() + bounds.getWestLongitude()
-            );
-            items.add(temp);
-        }
+        ContentValues limit = new ContentValues();
+        new NetworkTask(servername+"/vege_db/map/load_latlng.php", limit) {
+
+            @Override
+            protected void onPostExecute(String s) {
+                JSONArray jsonA0 = null;
+                JSONArray jsonA1 = null;
+                try{
+                    jsonA0 = new JSONArray(s);
+                    for(int i =  0; i< jsonA0.length();i++){
+                        NaverItem temp = new NaverItem(jsonA1.getDouble(1), jsonA0.getDouble(2));
+                        items.add(temp);
+                    }
+
+                } catch (JSONException e) {
+                    // TODO - ERROR CONTROL
+                }
+
+            }
+        }.execute();
         return items;
     }
     //----------마커 클러스터링 함수 (현재 난수로 좌표찍히는중)-------------
@@ -340,5 +388,164 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapView.onLowMemory();
     }
 
+
+}
+
+// 서버 통신 관련 클래스
+abstract class NetworkTask extends AsyncTask<Void, Void, String> {
+    private String url;
+    private ContentValues values;
+    public NetworkTask(String url, ContentValues values){
+        this.url = url;
+        this.values = values;
+    }
+    @Override protected String doInBackground(Void... params) {
+        String result; // 요청 결과를 저장할 변수.
+        RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
+        result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
+        return result;
+    }
+    abstract protected void onPostExecute(String s);
+}
+
+class RequestHttpURLConnection {
+    public String request(String _url, ContentValues _params) {
+        HttpURLConnection urlConn = null; // URL 뒤에 붙여서 보낼 파라미터.
+        StringBuffer sbParams = new StringBuffer();
+        if (_params != null) { // 파라미터가 2개 이상이면 파라미터 연결에 &가 필요하므로 스위칭할 변수 생성.
+            boolean isAnd = false;
+            String key;
+            String value;
+            for (Map.Entry<String, Object> parameter : _params.valueSet()) {
+                key = parameter.getKey();
+                value = parameter.getValue().toString();
+                if (isAnd) sbParams.append("&");
+                sbParams.append(key).append("=").append(value);
+                if (_params.size() >= 2) isAnd = true;
+            }
+        }
+        try {
+            URL url = new URL(_url);
+            urlConn = (HttpURLConnection) url.openConnection();
+            urlConn.setConnectTimeout(15000);
+            urlConn.setReadTimeout(15000);
+            urlConn.setDoInput(true);
+            urlConn.setDoOutput(true);
+            urlConn.setUseCaches(false);
+            urlConn.setRequestMethod("POST");
+            urlConn.setRequestProperty("Accept-Charset", "UTF-8");
+            urlConn.setRequestProperty("Context_Type", "application/x-www-form-urlencode");
+            String strParams = sbParams.toString();
+            OutputStream os = urlConn.getOutputStream();
+            os.write(strParams.getBytes("UTF-8"));
+            os.flush();
+            os.close();
+            if (urlConn.getResponseCode() != HttpURLConnection.HTTP_OK) return null;
+            BufferedReader reader = new BufferedReader(new InputStreamReader(urlConn.getInputStream(), "UTF-8"));
+            String line;
+            String page = "";
+            while ((line = reader.readLine()) != null) {
+                page += line;
+            }
+            return page;
+        } catch (MalformedURLException malformedURLException) {
+            malformedURLException.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (urlConn != null) urlConn.disconnect();
+        }
+        return null;
+    }
+}
+
+abstract class NetworkBinaryTask extends AsyncTask<Void, Void, byte[]> {
+    private String url;
+    private ContentValues values;
+    public NetworkBinaryTask(String url, ContentValues values){
+        this.url = url;
+        this.values = values;
+    }
+    @Override protected byte[] doInBackground(Void... params) {
+        byte[] result; // 요청 결과를 저장할 변수.
+        RequestHttpURLBinaryConnection requestHttpURLConnection = new RequestHttpURLBinaryConnection();
+        result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
+        return result;
+    }
+    abstract protected void onPostExecute(byte[] s);
+}
+
+class RequestHttpURLBinaryConnection {
+    public byte[] request(String _url, ContentValues _params) {
+        HttpURLConnection urlConn = null; // URL 뒤에 붙여서 보낼 파라미터.
+        StringBuffer sbParams = new StringBuffer();
+        if (_params != null) { // 파라미터가 2개 이상이면 파라미터 연결에 &가 필요하므로 스위칭할 변수 생성.
+            boolean isAnd = false;
+            String key;
+            String value;
+            for (Map.Entry<String, Object> parameter : _params.valueSet()) {
+                key = parameter.getKey();
+                value = parameter.getValue().toString();
+                if (isAnd) sbParams.append("&");
+                sbParams.append(key).append("=").append(value);
+                if (_params.size() >= 2) isAnd = true;
+            }
+        }
+        try {
+            URL url = new URL(_url);
+            urlConn = (HttpURLConnection) url.openConnection();
+            urlConn.setConnectTimeout(15000);
+            urlConn.setReadTimeout(15000);
+            urlConn.setDoInput(true);
+            urlConn.setDoOutput(true);
+            urlConn.setUseCaches(false);
+            urlConn.setConnectTimeout(15000);
+            urlConn.setReadTimeout(15000);
+            urlConn.setUseCaches(false);
+            urlConn.setRequestMethod("POST");
+            urlConn.setRequestProperty("Accept-Charset", "UTF-8");
+            urlConn.setRequestProperty("Context_Type", "application/x-www-form-urlencode");
+            String strParams = sbParams.toString();
+            OutputStream os = urlConn.getOutputStream();
+            os.write(strParams.getBytes("UTF-8"));
+            os.flush();
+            os.close();
+            urlConn.connect();
+            if (urlConn.getResponseCode() != HttpURLConnection.HTTP_OK) return null;
+
+            int len = urlConn.getContentLength();
+            byte[] tmpByte = new byte[len];
+            byte[] returnValue = null;
+
+            InputStream is = urlConn.getInputStream();
+            int Read;
+            for (;;) {
+                Read = is.read(tmpByte);
+                if (Read <= 0) {
+                    break;
+                }
+                if(returnValue == null) {
+                    byte[] newRV = new byte[Read];
+                    System.arraycopy(tmpByte,0,newRV,0,Read);
+                    returnValue = newRV;
+                }
+                else{
+                    byte[] newRV = new byte[returnValue.length+ Read];
+                    System.arraycopy(returnValue,0,newRV,0,returnValue.length);
+                    System.arraycopy(tmpByte,0,newRV,returnValue.length,Read);
+                    returnValue = newRV;
+                }
+            }
+
+            return returnValue;
+        } catch (MalformedURLException malformedURLException) {
+            malformedURLException.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (urlConn != null) urlConn.disconnect();
+        }
+        return null;
+    }
 
 }
