@@ -1,24 +1,4 @@
 <resources>
-    <string name="app_name">DduBuk2</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-
-    <!--네이버 연동 로그인 -->
-    <string name="naver_client_id">xxx</string>
-    <string name="naver_client_secret">xxx</string>
-    <string name="naver_client_name">xxx</string>
-    <!-- Ted Permission -->
-    <string name="permission_1">[설정] > [권한] 에서 권한을 허용할 수 있습니다.</string>
-    <string name="permission_2">사진 및 파일을 저장하기 위하여 접근 권한이 필요합니다.</string>
-
-    <string name="server_name">http://101.101.216.96</string>
-
+    <string name="app_name">lightroad</string>
+    <string name="server_name">http://15.165.17.250</string>
 </resources>

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DduBuk2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.LightMap" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,12 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.DduBuk2.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="SplashTheme" parent = "Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/intro</item>
+
+
     </style>
 
-    <style name="Theme.Temp_ddubuk.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.Temp_ddubuk.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
