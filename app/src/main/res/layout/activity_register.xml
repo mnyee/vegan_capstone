@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ece6cc">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="제목"/>
+            android:text="제목"
+            android:textColor="@color/black"
+            android:background="#B1A189"
+            android:fontFamily="@font/bm"/>
 
         <EditText
             android:id="@+id/title_et"
@@ -24,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="제목을 입력하세요."
+            android:fontFamily="@font/bm"
             />
     </LinearLayout>
 
@@ -31,9 +36,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="내용"/>
+        android:text="내용"
+        android:textColor="@color/black"
+        android:background="#B1A189"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="#aaaaaa">
+
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="100dp"
+            android:text=" \n사진 \n업로드"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:background="#B1A189"
+            android:fontFamily="@font/bm"/>
+
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_baseline_camera_alt_24"
+            android:id="@+id/imageView"/>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_baseline_camera_alt_24"
+            android:id="@+id/reg_img"/>
+
+    </LinearLayout>
 
     <EditText
+
         android:id="@+id/content_et"
         android:padding="16dp"
         android:layout_width="match_parent"
@@ -41,6 +80,7 @@
         android:layout_weight="1"
         android:background="#aaaaaa"
         android:hint="내용을 입력하세요."
+        android:fontFamily="@font/bm"
         />
 
     <Button
@@ -49,7 +89,8 @@
         android:layout_height="wrap_content"
         android:text="등록하기"
         android:textColor="#FFFFFF"
-        android:background="#C62828"/>
+        android:background="#C62828"
+        android:fontFamily="@font/bm"/>
 
 
 </LinearLayout>

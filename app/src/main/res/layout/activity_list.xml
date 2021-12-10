@@ -2,22 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ece6cc">
 
     <ListView
         android:id="@+id/listView"
+        android:background="#B8B299"
+        android:divider="@color/black"
+        android:dividerHeight="3px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+
+
         />
 
     <Button
         android:id="@+id/reg_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C62828"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffff"
         android:text="새 글 작성하기"
+        android:fontFamily="@font/bm"
         />
 
 </LinearLayout>

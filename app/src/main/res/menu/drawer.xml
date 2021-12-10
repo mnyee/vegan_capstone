@@ -5,18 +5,22 @@
         <item
             android:id="@+id/navigation_login"
             android:checked="true"
-            android:title="회원가입" />
+            android:title="회원가입"
+            android:fontFamily="@font/bm"/>
 
         <item
             android:id="@+id/navigation_review"
-            android:title="리뷰 게시판" />
+            android:title="리뷰 게시판"
+            android:fontFamily="@font/bm"/>
 
         <item
-            android:id="@+id/navigation_item_write"
-            android:title="Empty" />
+            android:id="@+id/navigation_location_auth"
+            android:title="위치 인증"
+            android:fontFamily="@font/bm"/>
 
         <item
-            android:id="@+id/navigation_item_settings"
-            android:title="Empty" />
+            android:id="@+id/navigation_mypage"
+            android:title="마이페이지"
+            android:fontFamily="@font/bm"/>
     </group>
 </menu>
