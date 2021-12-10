@@ -8,6 +8,9 @@
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -27,15 +30,55 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6aebbbbe-eb0d-41bb-a912-2bf1d9934267" name="Default Changelist" comment=".">
-      <change beforePath="$PROJECT_DIR$/DduBuk2.zip" beforeDir="false" />
+    <list default="true" id="6aebbbbe-eb0d-41bb-a912-2bf1d9934267" name="Default Changelist" comment="Review page">
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/temp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/caucap2021_1_2_10/ddubuk2/NaverItemTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/BaseDemoActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/ClickListenerActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/GpsTracker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/JavaItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/MapActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/MypageActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/NaverItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/RetrofitAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/RetrofitInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/circle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_list_alt_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_map_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/search.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/font/bm.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_location.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_map.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/array.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/LocationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/LocationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/caucap2021_1_2_10/ddubuk2/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_comment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_comment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_point.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_point.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/drawer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[4f27ceca]" />
   <component name="ExportToHTMLSettings">
     <option name="printScope" value="4" />
     <option name="OUTPUT_DIRECTORY" value="C:\Users\JeaWookPark\AndroidStudioProjects\DduBuk2" />
@@ -48,14 +91,25 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
+        <option value="Kotlin Class" />
+        <option value="JUnit3 Test Class" />
         <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubProjectSettings">
     <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
@@ -71,28 +125,44 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_6_API_30" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-11-01T07:39:22.246Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SelectDeploymentTargetsDialog.selectedDevices" value="Nexus_6_API_30" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LightMap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.caucap2021_1_2_10.ddubuk2" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\JeaWookPark\AndroidStudioProjects\DduBuk2\app\src\main\res\drawable" />
+      <recent name="C:\Users\JeaWookPark\AndroidStudioProjects\DduBuk2\app\src\main\res\font" />
       <recent name="C:\Users\JeaWookPark\AndroidStudioProjects\DduBuk2\app\src\main\res" />
       <recent name="C:\Users\JeaWookPark\AndroidStudioProjects\DduBuk2\app\src\main\res\values" />
       <recent name="C:\Users\JeaWookPark\AndroidStudioProjects\DduBuk2\app\src\main\res\menu" />
-      <recent name="C:\Users\JeaWookPark\AndroidStudioProjects\DduBuk2\app\src\main\res\layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\JeaWookPark\AndroidStudioProjects\DduBuk2\app\src\main\res\menu" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.caucap2021_1_2_10.ddubuk2" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.caucap2021_1_2_10.ddubuk2" />
     </key>
   </component>
   <component name="RunManager">
@@ -111,6 +181,7 @@
       <option name="ARTIFACT_NAME" value="" />
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
@@ -161,6 +232,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\JeaWookPark\AppData\Roaming\Subversion</configuration>
   </component>
@@ -200,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635412890238</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Review page">
+      <created>1636465070522</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636465070522</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -218,7 +297,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -228,121 +313,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="10/28 login/map" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="586" y="218" key="#Inspections" timestamp="1635322699115">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="586" y="218" key="#Inspections/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635322699115" />
-    <state x="477" y="286" key="#PSD" timestamp="1635230943695">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="477" y="286" key="#PSD/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635230943695" />
-    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1635410411160">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635410411160" />
-    <state x="765" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1635239407643">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="765" y="245" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635239407643" />
-    <state x="155" y="147" width="1476" height="750" key="AVDManager" timestamp="1635412748993">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="155" y="147" width="1476" height="750" key="AVDManager/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635412748993" />
-    <state x="540" y="294" key="AndroidCreateResourceFileDialog" timestamp="1635321867653">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="540" y="294" key="AndroidCreateResourceFileDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635321867653" />
-    <state x="803" y="329" key="AndroidCreateXmlResourceDialog" timestamp="1635323993273">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="-745" y="376" key="AndroidCreateXmlResourceDialog/0.0.1920.1080/-1280.64.1280.1024@-1280.64.1280.1024" timestamp="1635220350734" />
-    <state x="803" y="329" key="AndroidCreateXmlResourceDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635323993273" />
-    <state width="526" height="442" key="Diff.GoToChangePopup" timestamp="1635389987507">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="526" height="442" key="Diff.GoToChangePopup/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635389987507" />
-    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog" timestamp="1635391691942">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635391691942" />
-    <state x="739" y="280" key="FileChooserDialogImpl" timestamp="1635412784415">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="739" y="280" key="FileChooserDialogImpl/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635412784415" />
-    <state x="724" y="406" key="Github.CreatePullRequestDialog" timestamp="1635391419819">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="724" y="406" key="Github.CreatePullRequestDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635391419819" />
-    <state x="838" y="437" key="Github.ShareDialog" timestamp="1635389948484">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="838" y="437" key="Github.ShareDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635389948484" />
-    <state x="668" y="244" key="Github.UntrackedFilesDialog" timestamp="1633761720204">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="668" y="244" key="Github.UntrackedFilesDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1633761720204" />
-    <state width="1876" height="253" key="GridCell.Tab.0.bottom" timestamp="1635408709942">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1876" height="253" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635408709942" />
-    <state width="1876" height="253" key="GridCell.Tab.0.center" timestamp="1635408709942">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1876" height="253" key="GridCell.Tab.0.center/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635408709942" />
-    <state width="1876" height="253" key="GridCell.Tab.0.left" timestamp="1635408709941">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1876" height="253" key="GridCell.Tab.0.left/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635408709941" />
-    <state width="1876" height="253" key="GridCell.Tab.0.right" timestamp="1635408709942">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1876" height="253" key="GridCell.Tab.0.right/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635408709942" />
-    <state x="712" y="232" key="NewModule_or_Project.wizard" timestamp="1635239963653">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="712" y="232" key="NewModule_or_Project.wizard/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635239963653" />
-    <state x="838" y="201" key="SettingsEditor" timestamp="1635413719420">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="838" y="201" key="SettingsEditor/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635413719420" />
-    <state x="552" y="256" width="816" height="551" key="Vcs.Push.Dialog.v2" timestamp="1635412921347">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="552" y="256" width="816" height="551" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635412921347" />
-    <state x="754" y="317" key="chooseDestDirectoryDialog" timestamp="1635321170558">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="754" y="317" key="chooseDestDirectoryDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635321170558" />
-    <state x="662" y="348" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog" timestamp="1635410296094">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="662" y="348" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635410296094" />
-    <state x="765" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1635391852639">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="765" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635391852639" />
-    <state x="655" y="326" key="git4idea.merge.GitPullDialog" timestamp="1635412910115">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="655" y="326" key="git4idea.merge.GitPullDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635412910115" />
-    <state x="569" y="407" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1635391952757">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="569" y="407" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635391952757" />
-    <state x="579" y="280" key="psd.add.library.dependency.panel.dimension" timestamp="1635230941125">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="579" y="280" key="psd.add.library.dependency.panel.dimension/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635230941125" />
-    <state x="790" y="330" key="svn.repositoryBrowser" timestamp="1635391632608">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="790" y="330" key="svn.repositoryBrowser/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635391632608" />
-    <state x="732" y="301" key="svn4idea.import.options" timestamp="1635391624879">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="732" y="301" key="svn4idea.import.options/0.0.1920.1080/-1280.64.1280.1024@0.0.1920.1080" timestamp="1635391624879" />
+    <MESSAGE value="Review page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Review page" />
   </component>
 </project>
